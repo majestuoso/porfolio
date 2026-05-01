@@ -1,0 +1,78 @@
+/* src/components/ProyectoCard.module.css */
+
+.card {
+  background-color: #0f172a; /* Azul muy oscuro */
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de brillo y elevación al pasar el mouse */
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #38bdf8;
+  box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
+}
+
+.projectName {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* Empuja los tags y el link hacia abajo */
+}
+
+/* Contenedor de etiquetas tecnológicas */
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+
+.techTag {
+  background-color: #1e293b;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.card:hover .techTag {
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+/* Link a GitHub */
+.link {
+  display: inline-flex;
+  align-items: center;
+  color: #38bdf8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
