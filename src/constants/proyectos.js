@@ -20,5 +20,16 @@ export const MIS_PROYECTOS = [
     descripcion: "Simulacion de un Sistema de testimonial-cms",
     tecnologias: ["Node.js", "Express", "PostgreSQL"],
     link: "https://github.com/No-Country-simulation/S03-26-Equipo-18-Web-App-Development.git"
-  }
+  },
+  {
+  id: 4,
+  titulo: "Labor Docente - NTICx",
+  descripcion: "Instructor en nivel secundario enfocado en nuevas tecnologías.",
+  tecnologias: ["Docencia", "TICs"],
+  // Link de la noticia
+  link: "https://www.0223.com.ar/nota/2026-3-13-16-17-0-kicillof-concreto-la-historica-inauguracion-de-una-escuela-rural-en-tandil-nos-enorgullece", 
+  // Link directo a la foto (ahora solo como referencia para el enlace)
+  fotoUrl: "/escuela.jpeg", 
+  esDocencia: true
+}
 ];

@@ -7,7 +7,9 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  /* CAMBIO CLAVE AQUÍ: */
+  min-height: 250px; 
+  height: auto; 
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
