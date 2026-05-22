@@ -1,0 +1,445 @@
+/* ==========================================================================
+   ESTILOS GENERALES DE LA SECCIÓN INICIO
+   ========================================================================== */
+.inicio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+
+/* FOTO DE FONDO TRASERA */
+.foto-fondo-decorativa {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  width: 320px;
+  height: 320px;
+  opacity: 0.45;
+  z-index: 1;
+  pointer-events: none;
+  mask-image: radial-gradient(circle, black 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle, black 55%, transparent 100%);
+}
+
+.foto-fondo-decorativa img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.contenedor-principal-inicio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  z-index: 2;
+  width: 100%;
+  max-width: 1150px;
+}
+
+/* ==========================================================================
+   ESCENA DE LA LÁMPARA Y EL ESCRITORIO
+   ========================================================================== */
+.escena-contenedor {
+  position: relative;
+  width: 540px;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: -130px;
+}
+
+.cable-lampara { 
+  width: 7px; 
+  height: 80px; 
+  background-color: #6b527a; 
+}
+
+.lampara-cabeza {
+  width: 110px; 
+  height: 68px; 
+  background-color: #8c6d9e;
+  border-radius: 55px 55px 5px 5px; 
+  position: relative; 
+  cursor: pointer; 
+  z-index: 10;
+}
+
+.foco-adentro {
+  width: 36px; 
+  height: 36px; 
+  background-color: #e2e8f0; 
+  border-radius: 50%;
+  position: absolute; 
+  bottom: -16px; 
+  left: 37px;
+}
+
+.light-on .foco-adentro { 
+  background-color: #fffb80; 
+}
+
+.cono-luz {
+  position: absolute; 
+  top: 145px; 
+  width: 560px; 
+  height: 335px;
+  background: linear-gradient(to bottom, rgba(254, 240, 138, 0.45), rgba(254, 240, 138, 0));
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); 
+  opacity: 0; 
+  pointer-events: none; 
+  z-index: 2;
+}
+
+.light-on .cono-luz { 
+  opacity: 1; 
+}
+
+.tabla-escritorio { 
+  width: 100%; 
+  height: 14px; 
+  background-color: #2d2d2d; 
+  border-radius: 4px; 
+  position: absolute; 
+  bottom: 40px; 
+  z-index: 4; 
+}
+
+/* ==========================================================================
+   MODELADO DE COMPUTADORA iMAC VIRTUAL
+   ========================================================================== */
+.computadora-imac { 
+  position: absolute; 
+  bottom: 54px; 
+  width: 250px; 
+  z-index: 5; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.pantalla-marco {
+  width: 250px; 
+  height: 155px; 
+  background-color: #e2e8f0; 
+  border: 9px solid #2d2d2d;
+  border-bottom-width: 18px; 
+  border-radius: 9px 9px 0 0; 
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3); 
+  overflow: hidden;
+}
+
+.pantalla-contenido { 
+  width: 100%; 
+  height: 100%; 
+  background-color: #1a1a1a; 
+  position: relative; 
+}
+
+/* ==========================================================================
+   CARTEL DE INSTRUCCIONES Y CONTROLES TÁCTILES RETRO
+   ========================================================================== */
+.instrucciones-juego {
+  position: absolute;
+  bottom: -15px; /* Perfectamente ubicado sobre el espacio del escritorio */
+  z-index: 30;   /* Prioridad alta para registrar eventos de click/toque */
+  text-align: center;
+  width: auto;
+  transition: all 0.4s ease;
+}
+
+/* Texto de ayuda cuando la luz está apagada */
+.texto-ayuda {
+  font-family: monospace;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.light-off .texto-ayuda {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Caja contenedora de la botonera (Luz Encendida) */
+.controles-tactiles {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  background-color: #222222; /* Aspecto de consola oscura */
+  padding: 6px 10px;
+  border-radius: 12px;
+  border: 2px solid #333333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Botones individuales: delgados, compactos y estilizados */
+.btn-retro {
+  border: none;
+  font-size: 1rem;
+  width: 42px;         /* Ancho compacto y fijo */
+  height: 38px;        /* Altura proporcional */
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto de hundimiento físico al presionar */
+.btn-retro:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Colores Retro de la Botonera */
+.btn-retro:nth-child(1) { background-color: #22c55e; color: #ffffff; } /* Izquierda - Verde */
+.btn-retro:nth-child(1):active { background-color: #16a34a; }
+
+.btn-retro:nth-child(2) { background-color: #eab308; color: #000000; } /* Rotar - Amarillo */
+.btn-retro:nth-child(2):active { background-color: #ca8a04; }
+
+.btn-retro:nth-child(3) { background-color: #3b82f6; color: #ffffff; } /* Abajo - Azul */
+.btn-retro:nth-child(3):active { background-color: #2563eb; }
+
+.btn-retro:nth-child(4) { background-color: #ef4444; color: #ffffff; } /* Derecha - Rojo */
+.btn-retro:nth-child(4):active { background-color: #dc2626; }
+
+/* ==========================================================================
+   LÓGICA INTERNA Y ELEMENTOS DEL TETRIS (PANTALLA)
+   ========================================================================== */
+.tetris-container { 
+  width: 100%; 
+  height: 100%; 
+  background: #000; 
+  display: flex; 
+  position: relative; 
+}
+
+.tetris-grid { 
+  width: 100%; 
+  height: 100%; 
+  display: grid; 
+  grid-template-columns: repeat(14, 1fr); 
+  grid-template-rows: repeat(22, 1fr); 
+  background: #111; 
+  position: relative; 
+}
+
+.cell { 
+  border: 0.1px solid rgba(255, 255, 255, 0.05); 
+  width: 100%; 
+  height: 100%; 
+}
+
+.cell.active { 
+  position: absolute; 
+  width: calc(100% / 14); 
+  height: calc(100% / 22); 
+  border: 1px solid rgba(0, 0, 0, 0.2); 
+  box-sizing: border-box; 
+}
+
+.tetris-score { 
+  position: absolute; 
+  top: 2px; 
+  right: 5px; 
+  color: #fff; 
+  font-family: monospace; 
+  font-size: 10px; 
+  z-index: 10; 
+  background: rgba(0, 0, 0, 0.5); 
+  padding: 2px 4px; 
+  border-radius: 2px; 
+}
+
+.tetris-gameover { 
+  width: 100%; 
+  height: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  background: rgba(0, 0, 0, 0.9); 
+  color: #ff4d4d; 
+  z-index: 20; 
+}
+
+.tetris-gameover p { 
+  font-weight: bold; 
+  margin-bottom: 8px; 
+  font-size: 16px; 
+  letter-spacing: 1px; 
+}
+
+.tetris-gameover button { 
+  background: white; 
+  color: black; 
+  border: none; 
+  font-size: 11px; 
+  font-family: monospace; 
+  font-weight: bold; 
+  cursor: pointer; 
+  padding: 4px 8px; 
+  border-radius: 2px; 
+}
+
+.tetris-gameover button:hover { 
+  background: #e2e8f0; 
+}
+
+/* TERMINAL DE CÓDIGO (Luz Apagada) */
+.terminal-codigo { 
+  padding: 12px; 
+  font-family: monospace; 
+  color: #4ade80; 
+  font-size: 0.9rem; 
+}
+
+.prompt { 
+  animation: cursorParpadeo 1s infinite; 
+}
+
+/* ==========================================================================
+   TEXTOS DE PRESENTACIÓN DE BIENVENIDA (LADO DERECHO)
+   ========================================================================== */
+.content { 
+  flex: 1; 
+  max-width: 480px; 
+  text-align: left; 
+}
+
+.saludo { 
+  font-size: 1.15rem; 
+  font-weight: bold; 
+  margin-bottom: 10px; 
+  color: #b197fc; 
+}
+
+.content h1 { 
+  font-size: 2.6rem; 
+  line-height: 1.2; 
+  margin-bottom: 15px; 
+}
+
+.content h1 span { 
+  color: #b197fc; 
+  font-style: italic; 
+}
+
+/* INTERRUPTOR GENERAL (SWITCH COMPONENTE) */
+.switch-wrapper { 
+  margin-top: 25px; 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+}
+
+.switch { 
+  position: relative; 
+  display: inline-block; 
+  width: 50px; 
+  height: 26px; 
+}
+
+.switch input { 
+  opacity: 0; 
+  width: 0; 
+  height: 0; 
+}
+
+.slider { 
+  position: absolute; 
+  cursor: pointer; 
+  top: 0; left: 0; right: 0; bottom: 0; 
+  background-color: #4a5568; 
+  transition: 0.4s; 
+  border-radius: 34px; 
+}
+
+.slider:before { 
+  position: absolute; 
+  content: ""; 
+  height: 18px; 
+  width: 18px; 
+  left: 4px; 
+  bottom: 4px; 
+  background-color: white; 
+  transition: 0.4s; 
+  border-radius: 50%; 
+}
+
+input:checked + .slider { 
+  background-color: #4ade80; 
+}
+
+input:checked + .slider:before { 
+  transform: translateX(24px); 
+}
+
+.switch-label { 
+  font-weight: 600; 
+  font-size: 0.95rem; 
+}
+
+@keyframes cursorParpadeo { 
+  50% { opacity: 0; } 
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO MÓVILES (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .inicio { 
+    padding: 80px 20px 40px 20px; 
+    flex-direction: column; 
+  }
+  
+  .contenedor-principal-inicio { 
+    flex-direction: column; 
+    gap: 20px; 
+  }
+  
+  .escena-contenedor { 
+    margin-left: 0; 
+    transform: scale(0.65); 
+    transform-origin: top center; 
+    margin-bottom: -150px; 
+  }
+  
+  /* En teléfonos escalamos un poco la botonera para tocar hiper fácil con el pulgar */
+  .controles-tactiles {
+    transform: scale(1.25); 
+    margin-top: 5px;
+  }
+  
+  .content { 
+    text-align: center; 
+  }
+  
+  .switch-wrapper { 
+    justify-content: center; 
+  }
+  
+  .foto-fondo-decorativa { 
+    top: 10px; 
+    right: 50%; 
+    transform: translateX(50%); 
+    opacity: 0.25; 
+  }

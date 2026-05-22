@@ -28,10 +28,23 @@ export default function ProyectoCard({ proyecto }) {
           {proyecto.esDocencia ? "📰 Leer noticia de la inauguración →" : "💻 Ver código en GitHub →"}
         </a>
 
-        {/* Enlace 2: Solo aparece en Docencia para ver la foto específica */}
+        {/* Enlace 2: Solo aparece si el proyecto tiene un despliegue en vivo (como el Clima) */}
+        {proyecto.deployUrl && (
+          <a 
+            href={proyecto.deployUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={styles.link}
+            style={{ marginTop: '12px', color: '#10b981', borderTop: '1px solid #1e293b', paddingTop: '12px' }}
+          >
+            🚀 Ver sitio en vivo (GitHub Pages) →
+          </a>
+        )}
+
+        {/* Enlace 3: Corregido para que sume la base de GitHub Pages al abrir la foto */}
         {proyecto.esDocencia && proyecto.fotoUrl && (
           <a 
-            href={proyecto.fotoUrl} 
+            href={proyecto.fotoUrl.startsWith('http') ? proyecto.fotoUrl : `/porfolio${proyecto.fotoUrl}`} 
             target="_blank" 
             rel="noopener noreferrer" 
             className={styles.link}

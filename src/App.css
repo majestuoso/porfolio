@@ -1,0 +1,22 @@
+/* --- REGLAS GENERALES DEL PORTFOLIO --- */
+.portfolio-contenedor {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Transición suave para que el cambio de color sea armónico */
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+/* LUZ APAGADA = MODO CLARO (Fondo blanco/tiza) */
+.portfolio-contenedor.luz-baja {
+  background-color: #faf9f6; /* Blanco tiza limpio */
+  color: #1a1a1a;            /* Texto oscuro para buena lectura */
+  --color-tarjeta: #ffffff;  /* Tarjetas blancas */
+}
+
+/* LUZ ENCENDIDA = MODO OSCURO (Tu color violeta/púrpura de fondo) */
+.portfolio-contenedor.luz-alta {
+  background-color: #2b1b35; /* El violeta oscuro de la captura */
+  color: #f5f5f5;            /* Texto claro */
+  --color-tarjeta: #362442;  /* Tarjetas un poco más claras que el fondo */
+}

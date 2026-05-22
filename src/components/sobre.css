@@ -1,0 +1,217 @@
+.sobre {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sobre-contenedor {
+  width: 100%;
+  max-width: 850px;
+  position: relative;
+  z-index: 2;
+}
+
+.titulo-seccion {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.subtitulo-seccion {
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.7;
+  margin-bottom: 50px;
+}
+
+/* --- CONTENEDOR DEL CIRCUITO --- */
+.acordeon-circuito {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Separación para dar espacio a las curvas de los cables */
+  position: relative;
+}
+
+/* CONTENEDOR MAESTRO DE CADA SECCIÓN (Une cables + caja) */
+.nodo-circuito {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* --- DISEÑO DE LOS CABLES DE CIRCUITO (Pistas CSS) --- */
+.cable-izquierdo, .cable-derecho {
+  position: absolute;
+  top: 30px;
+  height: 4px;
+  background-color: rgba(128, 128, 128, 0.2); /* Cable apagado por defecto */
+  pointer-events: none;
+  transition: background-color 0.4s ease;
+}
+
+.cable-izquierdo {
+  left: -120px;
+  width: 120px;
+  border-radius: 4px 0 0 4px;
+}
+
+.cable-derecho {
+  right: -120px;
+  width: 120px;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Variaciones de formas/alturas en las pistas para simular placa real */
+.pista-uno { top: 28px; }
+.pista-dos { top: 28px; height: 4px; }
+.pista-tres { top: 28px; }
+
+/* --- EFECTO DE PULSO ELECTRÓNICO (Cuando está activo) --- */
+.nodo-circuito.activo .cable-izquierdo {
+  background: linear-gradient(90deg, transparent, #b197fc, #38bdf8, #fffb80);
+  background-size: 200% 100%;
+  animation: flujoDatos 1.5s linear infinite;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+}
+
+.nodo-circuito.activo .cable-derecho {
+  background: linear-gradient(270deg, transparent, #b197fc, #38bdf8, #fffb80);
+  background-size: 200% 100%;
+  animation: flujoDatos 1.5s linear infinite;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+}
+
+/* --- LA CAJA DEL ACORDEÓN --- */
+.acordeon-item {
+  width: 100%;
+  border: 2px solid rgba(128, 128, 128, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--color-tarjeta, rgba(255, 255, 255, 0.03));
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Energizado de la caja */
+.nodo-circuito.activo .acordeon-item {
+  border-color: #38bdf8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15), inset 0 0 10px rgba(56, 189, 248, 0.05);
+}
+
+/* --- ENCABEZADOS INTERACTIVOS --- */
+.acordeon-header {
+  width: 100%;
+  padding: 20px 26px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.acordeon-header:hover {
+  background-color: rgba(56, 189, 248, 0.04);
+}
+
+.acordeon-header .flecha {
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
+  opacity: 0.7;
+}
+
+.nodo-circuito.activo .acordeon-header .flecha {
+  transform: rotate(180deg);
+  color: #38bdf8;
+  opacity: 1;
+}
+
+/* --- CONTROL DEL DESPLEGABLE --- */
+.acordeon-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+}
+
+.nodo-circuito.activo .acordeon-content {
+  max-height: 1500px;
+  transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
+}
+
+.bloque-contenido {
+  padding: 26px;
+  border-top: 1px solid rgba(128, 128, 128, 0.15);
+  animation: encendidoTexto 0.4s ease-out;
+}
+
+/* --- CONTENIDOS INTERNOS --- */
+.bloque-contenido h3 {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+}
+
+.luz-baja .bloque-contenido h3 { color: #38bdf8; }
+.luz-alta .bloque-contenido h3 { color: #0284c7; }
+
+.item-trayectoria { margin-bottom: 22px; }
+.item-trayectoria:last-child { margin-bottom: 0; }
+.item-trayectoria h4 { font-size: 1.1rem; margin-bottom: 4px; }
+.item-trayectoria .lugar { font-size: 0.9rem; opacity: 0.8; font-weight: 500; }
+.item-trayectoria .descripcion { font-size: 0.9rem; margin-top: 6px; opacity: 0.85; line-height: 1.4; }
+.id-credencial { display: block; font-family: monospace; font-size: 0.8rem; opacity: 0.6; margin-top: 4px; }
+.separador-interno { border: 0; height: 1px; background: rgba(128, 128, 128, 0.15); margin: 25px 0; }
+
+/* --- SKILLS GRID --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.categoria-skill ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.categoria-skill li {
+  font-size: 0.95rem;
+  padding: 8px 14px;
+  background-color: rgba(128, 128, 128, 0.08);
+  border-radius: 6px;
+  display: inline-block;
+  width: fit-content;
+  border-left: 3px solid #38bdf8;
+}
+
+/* --- ANIMACIONES DE FLUJO --- */
+@keyframes flujoDatos {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes encendidoTexto {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ocultar cables en pantallas muy chicas para mantener el orden */
+@media (max-width: 1100px) {
+  .cable-izquierdo, .cable-derecho { display: none; }
+  .acordeon-circuito { gap: 15px; }
+}
+
+@media (max-width: 600px) {
+  .skills-grid { grid-template-columns: 1fr; gap: 25px; }
+}
