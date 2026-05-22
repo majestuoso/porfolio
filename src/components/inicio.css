@@ -443,3 +443,4 @@ input:checked + .slider:before {
     transform: translateX(50%); 
     opacity: 0.25; 
   }
+}
