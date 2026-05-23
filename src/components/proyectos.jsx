@@ -86,7 +86,7 @@ export default function Proyectos() {
             </div>
 
             <a 
-              href="https://joyeria-rodriguez.up.railway.app/" 
+              href="https://joyeria-rodriguez-desarrollo.up.railway.app//" 
               target="_blank" 
               rel="noopener noreferrer" 
               className={styles.link}
